@@ -4,12 +4,14 @@ var trueDesk
 var desk
 
 function createDesk(e) {
+    
     if(e.keyCode === 13){
+    e.preventDefault();
     let clearDiv = document.getElementsByClassName('desk')
     while (clearDiv.length) {
         clearDiv[0].remove();
     }
-    e.preventDefault();
+    
     let cnt = Number(event.currentTarget.value) + (((event.currentTarget.value % 6 == 0) ? 0 : 6) - (event.currentTarget.value % 6))
 
     for (i=0; i<cnt; i++) {
@@ -46,7 +48,7 @@ function toggleClass() {
 
 function handle(e){
     if(e.keyCode === 13){
-        e.preventDefault(); // Ensure it is only this code that rusn
+        e.preventDefault(); 
         studentName.push(event.currentTarget.value)
         event.currentTarget.value = "";
         for (i = 0; i<25; i++) {
@@ -59,16 +61,18 @@ function handle(e){
     }
 }
 
-function shuffle() {
+function shuffle(e) {
+    e.preventDefault();
     studentName = _.shuffle(_.shuffle(studentName))
-    
+    desk = document.getElementsByClassName('desk');
+    trueDesk = document.getElementsByClassName('True');
     for (i = 0; i<25; i++) {
     if (i >= studentName.length) {
         continue;
     } else {
         trueDesk[i].classList.add('bouncing')
-        setTimeout(removeBouncing, 1000)
         trueDesk[i].innerText = studentName[i]
+        setTimeout(removeBouncing, 1000)
     }
     }
 }
