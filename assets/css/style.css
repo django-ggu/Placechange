@@ -1,0 +1,56 @@
+@keyframes bouncing {
+    from, 20%, 53%, 80%, to {
+      animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+      transform: translateY(0);
+    }
+  
+    40%, 43% {
+      animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+      transform: translateY(-30px);
+    }
+  
+    70% {
+      animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+      transform: translateY(-15px);
+    }
+  
+    90% {
+      transform: translateY(-4px);
+    }
+  }
+
+  body {background-color: rgb(216, 216, 216);}
+
+.bouncing {
+    animation-duration: 1s;
+    animation-name: bouncing;
+    animation-iteration-count: infinite;
+  }
+
+.container {
+    margin-top: 50px;
+    min-width: 1140px;
+}
+
+
+.desk {
+    border: 3px dashed black;
+    line-height: 90px;
+    margin: 10px;
+    width: 140px;
+    height: 100px;
+
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.desk:nth-child(1) {
+    margin-left: 5px;
+}
+.desk:nth-child(6n+1) {
+    margin-left: 40px;
+}
+.desk:nth-child(3n) {
+    margin-right: 60px;
+}
+
